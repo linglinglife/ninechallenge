@@ -1,0 +1,16 @@
+{
+  "name": "ninechallenge",
+  "version": "1.0.0",
+  "description": "Submission for Nine Coding Challenge: http://codingchallenge.nine.com.au/",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "linglinglife",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
