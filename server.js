@@ -60,4 +60,10 @@ function isJson(str) {
     return true;
 };
 
+app.use(function(err, req, res, next){
+  console.error(err);
+  res.status(400);
+  res.json({ error: "Could not decode request: JSON parsing failed" });
+});
+
 app.listen(port);
