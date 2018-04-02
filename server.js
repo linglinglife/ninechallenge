@@ -1,9 +1,9 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 80
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.post('/', (request, response) => {
 
@@ -18,7 +18,7 @@ app.post('/', (request, response) => {
     // ... and with a `error` key containing the string Could not decode request.
     response.json({ error: "Could not decode request: JSON parsing failed" });
   }
-})
+});
 
 
 let filter = function (payload) {
@@ -41,14 +41,14 @@ let filter = function (payload) {
         image: payload[i].image.showImage,
         slug: payload[i].slug,
         title: payload[i].title,
-      }
+      };
 
-      filteredPayload.response.push(validShow)
-    }
-  }
+      filteredPayload.response.push(validShow);
+    };
+  };
 
   return filteredPayload;
-}
+};
 
 function isJson(str) {
     try {
@@ -58,6 +58,6 @@ function isJson(str) {
         return false;
     }
     return true;
-}
+};
 
 app.listen(port);
